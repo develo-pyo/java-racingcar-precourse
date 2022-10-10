@@ -3,7 +3,7 @@ package racingcar.domain;
 import static racingcar.Constants.ErrorMessage.CAR_NAME_NOT_VALID_ERR_MSG;
 
 public class CarName {
-    private static final int MAX_NAME_LENGTH = 4;
+    private static final int MAX_NAME_LENGTH = 5;
     private final String carName;
 
     public CarName(String carName){
