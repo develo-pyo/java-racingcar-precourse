@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.domain;
 
-import view.UserInterFace;
+import racingcar.view.UserInterFace;
 
 public class Car {
+
+    private static final String CAR_NAME_CAR_POSITION_DELIMITER = " : ";
     private static final int MOVE_FORWARD_NUM = 4;
     private final CarName carName;
     private final CarPosition carPosition;
@@ -21,7 +23,7 @@ public class Car {
     public void printCarNameAndPosition() {
         StringBuffer sb = new StringBuffer()
                                     .append(carName)
-                                    .append(" : ")
+                                    .append(CAR_NAME_CAR_POSITION_DELIMITER)
                                     .append(carPosition);
         UserInterFace.printMsg(sb.toString());
     }

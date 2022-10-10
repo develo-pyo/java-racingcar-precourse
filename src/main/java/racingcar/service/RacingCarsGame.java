@@ -1,12 +1,16 @@
-package racingcar;
+package racingcar.service;
 
-import view.UserInterFace;
+import racingcar.domain.MoveCount;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.view.UserInterFace;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarsGame {
+
+    private static final String CAR_NAME_DELIMITER = ",";
 
     private final Cars cars;
     private final MoveCount moveCount;
@@ -19,7 +23,7 @@ public class RacingCarsGame {
     private Cars mapCars(){
         try {
             List<Car> cars = new ArrayList<>();
-            for (String name : UserInterFace.getCarNames().split(",")) {
+            for (String name : UserInterFace.getCarNames().split(CAR_NAME_DELIMITER)) {
                 cars.add(new Car(name));
             }
             return new Cars(cars);

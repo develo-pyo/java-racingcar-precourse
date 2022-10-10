@@ -2,13 +2,17 @@ package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Constants.ErrorMessage.ERR_MSG_TITLE;
 
 class CarsTest {
 
+    private final String EXPECTED_CONTAINING_ERR_MSG = "[ERROR]";
     @Test
     @DisplayName("자동차 중복 이름 테스트")
     public void validateDuplicatedCarNameTest(){
@@ -24,6 +28,6 @@ class CarsTest {
                 }
         )
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("[ERROR]");
+        .hasMessageContaining(ERR_MSG_TITLE);
     }
 }

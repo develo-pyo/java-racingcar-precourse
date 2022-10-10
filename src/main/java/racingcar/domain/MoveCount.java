@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import static racingcar.Constants.ErrorMessage.MOVE_COUNT_VALID_ERR_MSG;
 
 public class MoveCount {
     private final int moveCount;
@@ -12,7 +14,7 @@ public class MoveCount {
 
     public static void validateNull(String moveCount){
         if(moveCount == null || moveCount.isEmpty()){
-            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 0이상 숫자만 입력 가능");
+            throw new IllegalArgumentException(MOVE_COUNT_VALID_ERR_MSG);
         }
     }
 
@@ -20,13 +22,13 @@ public class MoveCount {
         try {
             Integer.parseInt(moveCount);
         } catch (NumberFormatException e){
-            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 0이상 숫자만 입력 가능");
+            throw new IllegalArgumentException(MOVE_COUNT_VALID_ERR_MSG);
         }
     }
 
     private void validateNumber(int moveCount){
         if(moveCount < 1){
-            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 0이상 숫자만 입력 가능");
+            throw new IllegalArgumentException(MOVE_COUNT_VALID_ERR_MSG);
         }
     }
 

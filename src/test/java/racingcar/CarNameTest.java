@@ -4,10 +4,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
+import racingcar.domain.CarName;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.Constants.ErrorMessage.ERR_MSG_TITLE;
 
 class CarNameTest {
 
@@ -25,7 +26,7 @@ class CarNameTest {
                 }
         )
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("[ERROR]");
+        .hasMessageContaining(ERR_MSG_TITLE);
     }
 
     @ParameterizedTest
@@ -39,7 +40,7 @@ class CarNameTest {
                 }
         )
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("[ERROR]");
+        .hasMessageContaining(ERR_MSG_TITLE);
     }
 
 }

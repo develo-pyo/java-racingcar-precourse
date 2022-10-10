@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import static racingcar.Constants.ErrorMessage.CAR_NAME_NOT_VALID_ERR_MSG;
 
 public class CarName {
     private static final int MAX_NAME_LENGTH = 4;
@@ -15,14 +17,14 @@ public class CarName {
     }
 
     public static void validateNull(String carName){
-        if(carName == null || carName.isEmpty()){
-            throw new IllegalArgumentException("[ERROR] 자동차 이름은 1~4자");
+        if(carName == null){
+            throw new IllegalArgumentException(CAR_NAME_NOT_VALID_ERR_MSG);
         }
     }
 
     public static void validateLength(String carName) {
-        if(carName == null || carName.length() > MAX_NAME_LENGTH){
-            throw new IllegalArgumentException("[ERROR] 자동차 이름은 1~4자");
+        if(carName.length() > MAX_NAME_LENGTH){
+            throw new IllegalArgumentException(CAR_NAME_NOT_VALID_ERR_MSG);
         }
     }
 

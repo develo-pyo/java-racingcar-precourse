@@ -4,10 +4,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.MoveCount;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Constants.ErrorMessage.ERR_MSG_TITLE;
 
 class MoveCountTest {
+
+    private final String EXPECTED_CONTAINING_ERR_MSG = "[ERROR]";
 
     @ParameterizedTest
     @ValueSource(strings = {"", "0", "a"})
@@ -20,7 +24,7 @@ class MoveCountTest {
                 }
         )
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("[ERROR]");
+        .hasMessageContaining(ERR_MSG_TITLE);
     }
 
     @ParameterizedTest
@@ -34,7 +38,7 @@ class MoveCountTest {
                 }
         )
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .hasMessageContaining(ERR_MSG_TITLE);
     }
 
 }
