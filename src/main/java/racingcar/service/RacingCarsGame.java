@@ -11,6 +11,7 @@ import java.util.List;
 public class RacingCarsGame {
 
     private static final String CAR_NAME_DELIMITER = ",";
+    private static final String WINNER_PRINT_MSG = "최종 우승자 : ";
 
     private final Cars cars;
     private final MoveCount moveCount;
@@ -46,7 +47,11 @@ public class RacingCarsGame {
         for (int i = 0; i < moveCount.getMoveCount(); i++) {
             cars.moveCars();
         }
-        cars.printWinners();
+        printWinners(cars.extractWinners());
+    }
+
+    private void printWinners(Cars cars){
+        UserInterFace.printMsg(WINNER_PRINT_MSG + cars.extractCarNames());
     }
 
 }

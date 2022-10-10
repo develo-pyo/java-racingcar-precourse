@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import racingcar.view.UserInterFace;
 
-public class Car {
+public class Car implements Comparable<Car>{
 
     private static final String CAR_NAME_CAR_POSITION_DELIMITER = " : ";
     private static final int MOVE_FORWARD_NUM = 4;
@@ -35,5 +35,22 @@ public class Car {
     @Override
     public String toString() {
         return carName.toString();
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.getCarPosition().getPosition() - this.getCarPosition().getPosition();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+        return ((Car)obj).getCarPosition().equals(this.getCarPosition());
+    }
+
+    public CarName getCarName() {
+        return carName;
     }
 }
