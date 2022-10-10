@@ -18,5 +18,7 @@ public class UserInterFace {
         return Console.readLine();
     }
 
-
+    public static void printMsg(String msg){
+        System.out.println(msg);
+    }
 }
